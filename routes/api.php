@@ -20,7 +20,7 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/todos/{id}', [TodoController::class, 'destroy']); // Delete todo
 
     // Rute untuk Task
-    Route::get('/tasks', [TaskController::class, 'Allindex']);  // Menampilkan semua tasks
+    Route::get('/tasks', [TaskController::class, 'index']);  // Menampilkan semua tasks
     Route::post('/tasks/{todo}', [TaskController::class, 'store']); // Menambahkan task baru ke Todo tertentu
     Route::get('/tasks/{id}', [TaskController::class, 'show']);     // Menampilkan task berdasarkan ID
     Route::put('/tasks/{task}', [TaskController::class, 'update']); // Perbarui task berdasarkan ID
