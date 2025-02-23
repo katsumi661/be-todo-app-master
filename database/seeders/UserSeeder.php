@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -18,30 +19,30 @@ class UserSeeder extends Seeder
             'name' => 'Reviewee A',
             'email' => 'revieweeA@example.com',
             'password' => Hash::make('password'),
-            'role' => 'revieweeA',
+            'role_id' => Role::where('id', '1')->first()->id,
         ]);
 
         User::create([
             'name' => 'Reviewer A',
             'email' => 'reviewerA@example.com',
             'password' => Hash::make('password'),
-            'role' => 'reviewerA',
+            'role_id' => Role::where('id', '2')->first()->id,
         ]);
 
         User::create([
             'name' => 'Reviewee B',
             'email' => 'revieweeB@example.com',
             'password' => Hash::make('password'),
-            'role' => 'revieweeB',
+            'role_id' => Role::where('id', '3')->first()->id,
         ]);
 
         User::create([
             'name' => 'Reviewer B',
             'email' => 'reviewerB@example.com',
             'password' => Hash::make('password'),
-            'role' => 'reviewerB',
+            'role_id' => Role::where('id', '4')->first()->id,
         ]);
 
-        User::factory(10)->create();
+        // User::factory(10)->create();
     }
 }

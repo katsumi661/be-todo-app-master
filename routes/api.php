@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\RoleController;
 
 // Rute login
 Route::post('login', [AuthController::class, 'login']);
@@ -25,6 +26,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/tasks/{id}', [TaskController::class, 'show']);     // Menampilkan task berdasarkan ID
     Route::put('/tasks/{task}', [TaskController::class, 'update']); // Perbarui task berdasarkan ID
     Route::delete('/tasks/{tasks}', [TaskController::class, 'destroy']); // Menghapus task berdasarkan ID
+
+    // Role
+    Route::post('/roles/{role}/permissions', [RoleController::class, 'updatePermissions']);
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout']);

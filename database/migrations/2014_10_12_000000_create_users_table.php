@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['revieweeA', 'reviewerA', 'revieweeB', 'reviewerB'])->default('reviewerA');
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade'); // Relasi ke roles
             $table->rememberToken();
             $table->timestamps();
         });
